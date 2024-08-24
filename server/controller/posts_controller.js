@@ -29,9 +29,9 @@ router.get("/getPost", async (req, res) => {
 
 router.post("/addPost", async (req, res) => {
   const query = "INSERT INTO posts SET ?";
-  const {UID, Title, Subtitle, PostBody, ImgUrl, Rating } = req.body;
+  const { UID, Title, Subtitle, PostBody, ImgUrl, Rating } = req.body;
   const data = {
-    UID:UID,
+    UID: UID,
     Title: Title,
     Subtitle: Subtitle,
     Body: PostBody,
@@ -43,7 +43,7 @@ router.post("/addPost", async (req, res) => {
   console.log(result);
   if (result.affectedRows > 0) {
     console.log("post added!");
-    
+
     res.status(200).json({ mesage: "post added successfully!" });
   } else {
     console.log("fail to fetch");
